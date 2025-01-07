@@ -23,8 +23,10 @@ export const options = {
 };
 
 export function sampleTest() {
+    let delay = Math.random() * 0.5; 
+    sleep(delay);
     let res = http.get("https://gorest.co.in/public/v2/users", reqHeader);
     let checkRes = check(res, {
-        'status is 200': (r) => r.status === 200,
+        'status is 200, delay ' + delay: (r) => r.status === 200,
     });
 }
